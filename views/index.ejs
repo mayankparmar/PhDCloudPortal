@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>The forest Cloud &minus; Home</title>
+    <meta name="keywords" content="themes, bootstrap, free, templates, bootstrap 3, freebie,">
+    <meta property="og:title" content="">
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-v=2.1.5.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    <link href='//fonts.googleapis.com/css?family=Titillium+Web:400,600,300,200&subset=latin,latin-ext'
+          rel='stylesheet' type='text/css'>
+
+
+    <link rel="prefetch" href="images/zoom.png">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+
+    <link href="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css" rel="stylesheet"/>
+    <script src="https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js"></script>
+
+
+</head>
+
+<body>
+<div class="navbar navbar-fixed-top" data-activeslide="1" style="display: block; float: top; position: absolute; background: rgb(206,207,207)">
+    <h1 class="font-thin" style="color: #fff; display: inline-block; float: left; width: auto">The <span class="font-semibold">forest CLOUD</span></h1>
+    <div class="container" style="display: inline-block; float: left;">
+
+        <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="nav-collapse collapse navbar-responsive-collapse" style="float: right; display: inline-block">
+
+            <ul class="nav row" style="display:inline-block; padding: 10px; white-space: nowrap; min-width: 80px;">
+                <li data-slide="1" class="col-2 col-sm-2" style="display:inline-block; white-space: nowrap; min-width: 80px"><a id="menu-link-1" href="#slide-1"
+                                                              title="Next Section"><span class="icon icon-home"></span>
+                        <span class="text">HOME</span></a></li>
+                
+                <li data-slide="2" class="col-2 col-sm-2" style="display:inline-block; white-space: nowrap; min-width: 80px"><a id="menu-link-2" href="#slide-2"
+                                                              title="Next Section"><span class="icon icon-user"></span>
+                        <span class="text">ABOUT US</span></a></li>
+
+                <!--
+                <li data-slide="3" class="col-12 col-sm-2"><a id="menu-link-3" href="#slide-3"
+                                                              title="Next Section"><span
+                                class="icon icon-briefcase"></span> <span class="text">PORTFOLIO</span></a></li>
+                <li data-slide="4" class="col-12 col-sm-2"><a id="menu-link-4" href="#slide-4"
+                                                              title="Next Section"><span class="icon icon-gears"></span>
+                        <span class="text">PROCESS</span></a></li>
+                <li data-slide="5" class="col-12 col-sm-2"><a id="menu-link-5" href="#slide-5"
+                                                              title="Next Section"><span class="icon icon-heart"></span>
+                        <span class="text">CLIENTS</span></a></li>
+                <li data-slide="6" class="col-12 col-sm-2"><a id="menu-link-6" href="#slide-6"
+                                                              title="Next Section"><span
+                                class="icon icon-envelope"></span> <span class="text">CONTACT</span></a></li>
+                -->
+
+            </ul>
+
+            <div class="row">
+                <div class="col-sm-2 active-menu"></div>
+            </div>
+        </div><!-- /.nav-collapse -->
+
+    </div><!-- /.container -->
+<!--
+    <div style="position: absolute; float:right; width: 100%; text-align: right; padding-right: 2%" class="row nav"><a href="/portal"><span
+                    class="icon-user"></span> <span class="text">LOGIN</span></a></div>
+    <br/>
+    -->
+</div><!-- /.navbar -->
+
+
+<!-- === Arrows === --
+<div id="arrows">
+    <div id="arrow-up" class="disabled"></div>
+    <div id="arrow-down"></div>
+    <div id="arrow-left" class="disabled visible-lg"></div>
+    <div id="arrow-right" class="disabled visible-lg"></div>
+</div><!-- /.arrows -->
+
+
+<!-- === MAIN Background === -->
+<div class="slide story" id="slide-1" data-slide="1" style="display: block; position: absolute">
+    <!--<div class="container" style="height: 100%">
+        <div id="home-row-1" class="row clearfix" >
+            <div class="col-12" >
+
+
+
+                &lt;!&ndash;<h4 class="font-thin">Bringing <span class="font-semibold">smart solutions</span> to the world.</h4>&ndash;&gt;
+                <br>
+                <br>
+            </div>&lt;!&ndash; /col-12 &ndash;&gt;
+        </div>&lt;!&ndash; /row &ndash;&gt;
+        <div id="home-row-2" class="row clearfix">
+            <div class="col-12 col-sm-4">
+
+                &lt;!&ndash;
+                <div class="home-hover navigation-slide" data-slide="4"><img src="images/s03.png"></div>
+                <span style="color: rgb(205, 32, 39)">SUSTAINABLE</span></div>
+
+            <div class="col-12 col-sm-4">
+                <div class="home-hover navigation-slide" data-slide="3"><img src="images/s01.png"></div>
+                <span style="color: rgb(205, 179, 32)"></span></div>
+            <div class="col-12 col-sm-4">
+                <div class="home-hover navigation-slide" data-slide="5"><img src="images/s02.png"></div>
+                <span style="color: #2096cd">SUITABLE</span></div> &ndash;&gt;
+        </div>&lt;!&ndash; /row &ndash;&gt;
+    </div>&lt;!&ndash; /container &ndash;&gt;-->
+</div><!-- /slide1 -->
+
+<!-- === Slide 2 === --
+<div class="slide story" id="slide-2" data-slide="2">
+    <div class="container">
+        <div class="row title-row">
+            <div class="col-12 font-thin">One simple goal, <span class="font-semibold">management & monitoring</span> of
+                resources over cloud.
+            </div>
+        </div><!-- /row --
+        <div class="row line-row">
+            <div class="hr">&nbsp;</div>
+        </div><!-- /row --
+        <div class="row subtitle-row">
+            <div class="col-12 font-thin">This is what <span class="font-semibold">we do best</span></div>
+        </div><!-- /row --
+        <div class="row content-row">
+            <div class="col-12 col-lg-3 col-sm-6">
+                <p><i class="icon icon-eye-open"></i></p>
+                <h2 class="font-thin">Live <span class="font-semibold">Monitoring</span></h2>
+                <h4 class="font-thin">Keeping a multi-sensory watch on all your resources.</h4>
+            </div><!-- /col12 --
+            <div class="col-12 col-lg-3 col-sm-6">
+                <p><i class="icon icon-laptop"></i></p>
+                <h2 class="font-thin">Cloud <span class="font-semibold">Management</span></h2>
+                <h4 class="font-thin">Anytime, anyplace management over secure portal.</h4>
+            </div><!-- /col12 --
+            <div class="col-12 col-lg-3 col-sm-6">
+                <p><i class="icon icon-tablet"></i></p>
+                <h2 class="font-thin">Simplified <span class="font-semibold">Data</span></h2>
+                <h4 class="font-thin">Keep aside technical jargons and let's speak your language.</h4>
+            </div><!-- /col12 --
+            <div class="col-12 col-lg-3 col-sm-6">
+                <p><i class="icon icon-pencil"></i></p>
+                <h2 class="font-thin">Tailored <span class="font-semibold">Tech</span></h2>
+                <h4 class="font-thin">Bespoke development to fit your requirements the way you need.</h4>
+            </div><!-- /col12 --
+        </div><!-- /row --
+    </div><!-- /container --
+</div><!-- /slide2 --
+
+<!-- === SLide 3 - Portfolio --
+<div class="slide story" id="slide-3" data-slide="3" style="text-align: center; height: fit-content;">
+    <div class="row" style="text-align: center; display: inline-block;">
+        <div class="col-12 col-sm-6 col-lg-2"
+             style="position: relative; text-align: center; float: left; margin: auto;"><a
+                    data-fancybox-group="portfolio" class="fancybox" href="" style="color: #2e2f2f"><img
+                        class="thumb" src="images/portfolio/p01-small.jpg" alt="">
+                <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"><h1
+                            class="font-semibold">Reservoir Monitoring</h1></div>
+            </a></div>
+
+        <div class="col-12 col-sm-6 col-lg-2" style="position: relative; text-align: center"><a
+                    data-fancybox-group="portfolio" class="fancybox" href="" style="color: whitesmoke"><img
+                        class="thumb" src="images/portfolio/p02-small.jpg" alt="">
+                <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"><h1
+                            class="font-semibold">Dam Gate Automation</h1></div>
+            </a></div>
+
+        <div class="col-12 col-sm-6 col-lg-2" style="position: relative; text-align: center"><a
+                    data-fancybox-group="portfolio" class="fancybox" href="" style="color: whitesmoke"><img
+                        class="thumb" src="images/portfolio/p03-small.jpg" alt="">
+                <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"><h1
+                            class="font-semibold">Smart Water-Treatment Plant</h1></div>
+            </a></div>
+
+        <div class="col-12 col-sm-6 col-lg-2" style="position: relative; text-align: center"><a
+                    data-fancybox-group="portfolio" class="fancybox" href="" style="color: whitesmoke"><img
+                        class="thumb" src="images/portfolio/p04-small.jpg" alt="">
+                <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"><h1
+                            class="font-semibold">Autonomous Water-Supply</h1></div>
+            </a></div>
+    </div><!-- /row --
+</div><!-- /slide3 --
+
+<!-- === Slide 4 - Process === --
+<div class="slide story" id="slide-4" data-slide="4">
+    <div class="container">
+        <div class="row title-row">
+            <div class="col-12 font-thin">See us <span class="font-semibold">at work</span></div>
+        </div><!-- /row --
+        <div class="row line-row">
+            <div class="hr">&nbsp;</div>
+        </div><!-- /row --
+        <div class="row subtitle-row">
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+            <div class="col-12 col-sm-10 font-light"><span class="font-semibold">Versatility</span> is essential in
+                keeping up with the technological trend
+                of the world. Aligning with the very fact, we ensure our clients get state-of-the-art solutions to all
+                their automation and monitoring needs.
+            </div>
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        </div><!-- /row --
+        <div class="row content-row">
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+            <div class="col-12 col-sm-2">
+                <p><i class="icon icon-bolt"></i></p>
+                <h2 class="font-thin">Listening to<br><span class="font-semibold">your needs</span></h2>
+                <h4 class="font-thin">We emphasise on understanding your need and requirements. It is essential for a
+                    durable foundation.</h4>
+            </div><!-- /col12 --
+            <div class="col-12 col-sm-2">
+                <p><i class="icon icon-cog"></i></p>
+                <h2 class="font-thin">Project<br><span class="font-semibold">discovery</span></h2>
+                <h4 class="font-thin">Your requirements help us understand the ways to serve you in the best possible
+                    ways.</h4>
+            </div><!-- /col12 --
+            <div class="col-12 col-sm-2">
+                <p><i class="icon icon-cloud"></i></p>
+                <h2 class="font-thin">Storming<br><span class="font-semibold">our brains</span></h2>
+                <h4 class="font-thin">After careful evaluation of requirements, it is time for us to put some magic
+                    dust for identifying suitable solution.</h4>
+            </div><!-- /col12 --
+            <div class="col-12 col-sm-2">
+                <p><i class="icon icon-map-marker"></i></p>
+                <h2 class="font-thin">Getting<br><span class="font-semibold">there</span></h2>
+                <h4 class="font-thin">It is a long and hard trek that take perseverance to finish, of course our magic
+                    spells makes it easier.</h4>
+            </div><!-- /col12 --
+            <div class="col-12 col-sm-2">
+                <p><i class="icon icon-gift"></i></p>
+                <h2 class="font-thin">Delivering<br><span class="font-semibold">the product</span></h2>
+                <h4 class="font-thin">Ensuring the solution is deployed and your personnel are trained acts like a
+                    cherry on top.</h4>
+            </div><!-- /col12 --
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        </div><!-- /row --
+    </div><!-- /container --
+</div><!-- /slide4 --
+
+<!-- === Slide 5 === --
+<div class="slide story" id="slide-5" data-slide="5">
+    <div class="container">
+        <div class="row title-row">
+            <div class="col-12 font-thin"><span class="font-semibold">Clients</span> we’ve worked with</div>
+        </div><!-- /row --
+        <div class="row line-row">
+            <div class="hr">&nbsp;</div>
+        </div><!-- /row --
+        <div class="row subtitle-row">
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+            <div class="col-12 col-sm-10 font-light">Contrary to popular belief, Lorem Ipsum is not simply random text.
+                It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                <br/><br/> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
+                interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero.
+            </div>
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        </div><!-- /row --
+        <div class="row content-row">
+            <div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
+            <div class="col-12 col-sm-2"><img src="images/client01.png" alt=""></div>
+            <div class="col-12 col-sm-2"><img src="images/client02.png" alt=""></div>
+            <div class="col-12 col-sm-2"><img src="images/client03.png" alt=""></div>
+            <div class="col-12 col-sm-2"><img src="images/client04.png" alt=""></div>
+            <div class="col-12 col-sm-2"><img src="images/client05.png" alt=""></div>
+            <div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
+        </div><!-- /row --
+    </div><!-- /container --
+</div><!-- /slide5 --
+
+<!-- === Slide 6 / Contact === --
+<div class="slide story" id="slide-6" data-slide="6">
+    <div class="container">
+        <div class="row title-row">
+            <div class="col-12 font-light">Leave us a <span class="font-semibold">message</span></div>
+        </div><!-- /row --
+        <div class="row line-row">
+            <div class="hr">&nbsp;</div>
+        </div><!-- /row --
+        <div class="row subtitle-row">
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+            <div class="col-12 col-sm-10 font-light">You can find us literally anywhere, just push a button and we’re
+                there
+            </div>
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        </div><!-- /row --
+        <div id="contact-row-4" class="row" style="text-align: center">
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+            <div class="col-12 col-sm-2 with-hover-text">
+                <p><a target="_blank" href="#"><i class="icon icon-phone"></i></a></p>
+                <span class="hover-text font-light ">+91 123 456 7890</span></a>
+            </div><!-- /col12 --
+            <div class="col-12 col-sm-2 with-hover-text" style="text-align: center">
+                <p><a target="_blank" href="#"><i class="icon icon-envelope"></i></a></p>
+                <span class="hover-text font-light ">contact@thewatercloud.com</span></a>
+            </div><!-- /col12 --
+            <div class="col-12 col-sm-2 with-hover-text">
+                <p><a target="_blank" href="#"><i class="icon icon-home"></i></a></p>
+                <span class="hover-text font-light ">Indore, India</span></a>
+            </div><!-- /col12 --
+            <div class="col-12 col-sm-2 with-hover-text">
+                <p><a target="_blank" href="#"><i class="icon icon-facebook"></i></a></p>
+                <span class="hover-text font-light ">facebook/thewatercloud</span></a>
+            </div><!-- /col12 --
+            <div class="col-12 col-sm-2 with-hover-text">
+                <p><a target="_blank" href="#"><i class="icon icon-twitter"></i></a></p>
+                <span class="hover-text font-light ">@thewatercloud</span></a>
+            </div><!-- /col12 --
+            <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        </div><!-- /row --
+    </div><!-- /container --
+</div><!-- /Slide 6 -->
+
+</body>
+
+<!-- SCRIPTS -->
+<script src="js/html5shiv.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox.pack-v=2.1.5.js"></script>
+<script src="js/script.js"></script>
+
+<!-- fancybox init -->
+<script>
+    $(document).ready(function (e) {
+        var lis = $('.nav > li');
+        menu_focus(lis[0], 1);
+
+        $(".fancybox").fancybox({
+            padding: 10,
+            helpers: {
+                overlay: {
+                    locked: false
+                }
+            }
+        });
+
+    });
+</script>
+
+<script>
+
+    window.addEventListener ()
+    function fetchLocations () {
+        L.mapbox.accessToken = 'pk.eyJ1IjoibWF5YW5rMzExIiwiYSI6ImNrMXFkNnVjeDAxc3czZHN4MmNsdHY2a24ifQ.T-QvLV8ABY4mdx5B9pUHSQ';
+        var mapLeaflet = L.mapbox.map('slide-1').setView([53.337, -6.268], 15).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
+        // L.marker([53.337695, -6.268322]).addTo(mapLeaflet);
+        mapLeaflet.scrollWheelZoom.disable();
+
+        console.log ('loaded');
+        var http_req = new XMLHttpRequest();
+        http_req.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log ('locations fetch request is answered');
+                var data_range = JSON.parse (this.responseText);
+                console.log (data_range);
+            }
+        }
+        http_req.open ("Get", "/device/getLocations");
+        http_req.send ();
+    }
+
+    /*mapboxgl.accessToken = 'pk.eyJ1IjoibWF5YW5rMzExIiwiYSI6ImNrMXFkNnVjeDAxc3czZHN4MmNsdHY2a24ifQ.T-QvLV8ABY4mdx5B9pUHSQ';
+    var map = new mapboxgl.Map({
+        container: 'slide-1', // container id
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: [-74.50, 40], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });*/
+</script>
+</html>

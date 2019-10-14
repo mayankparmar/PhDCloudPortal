@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html style="height: 100%" xmlns="http://www.w3.org/1999/html" xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>The Water Cloud &minus; Portal</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap portal.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+    <link rel="stylesheet" type="text/css" href="/css/theme.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+</head>
+
+<body class="gray-darker" >
+<div class="container-fluid " style="height: 100%; min-height: 100%; width: 100%; min-width: 100%">
+
+    <div class="row" style="height: 100%; min-height: 100%">
+        <div class="col-md-12" style="height: 100%; min-height: 100%">
+            <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-bottom">
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">The Water Cloud - Portal</a>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!--<ul class="navbar-nav">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                    </li>
+                    </ul>
+                    <form class="form-inline navbar-right">
+                    <input class="form-control mr-sm-2" type="text">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                    Search
+                    </button>
+                    </form>-->
+
+
+                    <!--<button class="btn-primary navbar-right" type="button" data-toggle="modal"
+                            data-target="#modal-add_device">Add Device
+                    </button>-->
+
+                    <button class="btn-primary navbar-right" type="button" onclick="location.href='/logout'">Logout
+                    </button>
+
+                </div>
+            </nav>
+
+            <!-- Add Device Modal -->
+            <div class="modal fade" id="modal-add_device" style="">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form action="/add_device" method="post">
+                                <div class="form-group">
+                                    <h4>Add New Device</h4>
+                                    <label class="col-form-label">Device ID:</label>
+                                    <input type="text" name="device_id" class="form-control input-sm chat-input"
+                                           placeholder="Device ID"/>
+                                    </br>
+                                    <label class="col-form-label">Device Name:</label>
+                                    <input type="text" name="device_name" class="form-control input-sm chat-input"
+                                           placeholder="Name"/>
+                                </div>
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </form>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Left Navigation Menu -->
+            <div class="row" style="height: 100%;">
+                <div class="col-md-3" style="border-right: 1px solid whitesmoke">
+                    <div class="page-header">
+                        <h2>
+                            <!--The Water Cloud <br/>-->
+                            <small>Kolar OHT Monitoring Portal</small>
+                        </h2>
+                    </div>
+                    <div class="jumbotron" style="margin-left: 0px; padding-left: 2%; padding-top: 0%; height: 100%">
+                        <h3>
+                            <small>Device selected:</small>
+                        </h3>
+                        <br/>
+
+                        <div id="side_div" style="display: none">
+
+                            <table style="width: 100%; ">
+                                <tr>
+                                    <td>
+                                        <h3 id="name_oht"></h3>
+                                    </td>
+                                    <td align="right">
+                                        <button class="btn-outline-secondary" id="hide_side_div">X</button>
+                                    </td>
+                                </tr>
+                                <!--<p id="name_oht" style="align-content: left" align="left"></p>-->
+                                <!--<p style="align-content: right" align="right">X</p>-->
+                            </table>
+                            <p style="font-size: small">
+                                Capacity: 2000 KL
+                                <br/>
+                                Current Storage: <%= shalimar_storage %>
+                                <br/>
+                                <small>Updated at: <%= shalimar_update %></small>
+                                <br/>
+                                <button class="btn-info">Generate report for last 24 hours</button>
+
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Device Info Modal -->
+                    <div class="modal fade" id="modal-device_detail" style="">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Modal Heading</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Modal body..
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="modal fade" id="modal-container-161063" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">
+                    Modal title
+                </h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">
+                    Save changes
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                    </button>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                    <button class="btn btn-secondary" type="button">
+                    Left
+                    </button>
+                    <button class="btn btn-secondary" type="button">
+                    Center
+                    </button>
+                    <button class="btn btn-secondary" type="button">
+                    Right
+                    </button>
+                    <button class="btn btn-secondary" type="button">
+                    Justify
+                    </button>
+                    </div>-->
+                </div>
+
+
+                <!-- Top Summary Block -->
+                <div class="col-md-9" style="vertical-align: middle; height: 60px">
+                    <div class="row text-center"
+                         style="height: 100%; position: relative; vertical-align: middle ; border-bottom: 1px solid whitesmoke">
+                        <div class="col-md-3" style="vertical-align: middle; height: 100%;">
+                            <button class="btn-success"
+                                    style="height: 90%; width: 90%; margin-top: 1%; cursor: default; color: #3d4954">
+                                <strong>Total Devices
+                                    &minus;</strong></button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn-info"
+                                    style="height: 90%; width: 90%; margin-top: 1%; cursor: default; color: #3d4954">
+                                <strong>Active Devices
+                                    &minus; </strong>
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn-danger"
+                                    style="height: 90%; width: 90%; margin-top: 1%; cursor: default; color: #3d4954">
+                                <strong>Inactive Devices
+                                    &minus; </strong>
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn-primary"
+                                    style="height: 90%; width: 90%; margin-top: 1%; cursor: default; color: #3d4954">
+                                <strong>In Need of Maintenance &minus; 0</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" id="map"
+                         style="position: fixed;height: 90%; background: white; width: 100%; align-items: center;">
+
+                        <!-- SVG -->
+
+
+                        <!-- Works -->
+                        <!--<object data="images/drawing.svg" usemap="#overheadTank"-->
+
+                        <div style="margin-left: 5%" align="center">
+                            <object data="images/drawing.svg" type="images/svg+xml" id="layout" align="center"/>
+                        </div>
+                        <!--
+                        <map name="overheadTank" id="overheadTank">
+                            <area shape="rect" coords="770, 13, 840, 103" alt="shalimar" title="shalimar" href="#"
+                                  target=""/>
+                            <area shape="rect" coords="729, 139, 799, 229" alt="mayank" title="mayank" href="#"
+                                  target=""/>
+                        </map>
+
+                        <!-- <div id="chekcoord"
+                              style="position: absolute; z-index: 10; background: #000; opacity: 0.7; top: 0px; left: 0px; width: 70px; height: 90px;"></div>--
+
+                        <a href="#">
+                            <div id="info-panel-1">
+                                <div id="info-title">
+                                    <strong>Shalimar Garden OHT</strong>
+                                    <br/>
+                                    Capacity: <span id="true-info">2000 KL</span>
+                                    <br/>
+                                    Live Storage: <span id="true-info"><%= shalimar_storage %> KL</span>
+                                    <br/>
+                                    <small>Last Updated: <span id="true-info"><%= shalimar_update %></span></small>
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <a href="#">
+                            <div id="info-panel-2">
+                                <div id="info-title">
+                                    <strong>Ritu Hospital OHT</strong>
+                                    <br/>
+                                    Capacity: <span id="true-info">2000 KL</span>
+                                    <br/>
+                                    Live Storage: <span id="true-info"><%= shalimar_storage %> KL</span>
+                                    <br/>
+                                    <small>Last Updated: <span id="true-info"><%= shalimar_update %></span></small>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div id="info-panel-3">
+                                <div id="info-title">
+                                    <strong>Kolar Police Station OHT</strong>
+                                    <br/>
+                                    Capacity: <span id="true-info">2000 KL</span>
+                                    <br/>
+                                    Live Storage: <span id="true-info"><%= shalimar_storage %> KL</span>
+                                    <br/>
+                                    <small>Last Updated: <span id="true-info"><%= shalimar_update %></span></small>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div id="info-panel-4">
+                                <div id="info-title">
+                                    <strong>Raj Hans Colony OHT</strong>
+                                    <br/>
+                                    Capacity: <span id="true-info">2000 KL</span>
+                                    <br/>
+                                    Live Storage: <span id="true-info"><%= shalimar_storage %> KL</span>
+                                    <br/>
+                                    <small>Last Updated: <span id="true-info"><%= shalimar_update %></span></small>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div id="info-panel-5">
+                                <div id="info-title">
+                                    <strong>Bairagarh Chichli OHT</strong>
+                                    <br/>
+                                    Capacity: <span id="true-info">2000 KL</span>
+                                    <br/>
+                                    Live Storage: <span id="true-info"><%= shalimar_storage %> KL</span>
+                                    <br/>
+                                    <small>Last Updated: <span id="true-info"><%= shalimar_update %></span></small>
+                                </div>
+                            </div>
+                        </a>
+                           -->
+                        <!-- -->
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+
+<script src="/js/socket.io.js"></script>
+
+<script>
+    $("document").ready(function () {
+        /*document.getElementById("shalimar").onclick = (function () {
+           alert("hi");
+        });*/
+
+
+
+        $("#overheadTank area:eq(0)").click(function () {
+            alert("123");
+        });
+
+        $("#overheadTank area:eq(1)").click(function () {
+            alert("123456");
+        });
+
+        var infopanel = document.getElementById("side_div");
+
+        var map = document.getElementById("layout");
+        var svgdoc;
+
+        map.addEventListener("load", function () {
+            svgdoc = map.contentDocument;
+
+            updateinfo(svgdoc);
+
+            var shal = svgdoc.getElementById("shal");
+            var ritu = svgdoc.getElementById("ritu");
+            var kolarps = svgdoc.getElementById("kolarps");
+            var raj = svgdoc.getElementById("raj");
+            var bairagarh = svgdoc.getElementById("bairagarh");
+
+            shal.addEventListener("mousedown", function () {
+                infopanel.style.display = "block";
+                $("#name_oht").text("Shalimar");
+                $("#hide_side_div").click(function () {
+                    infopanel.style.display = "none";
+                });
+            }, false);
+
+        }, false);
+
+        setInterval(updateinfo, 5000);
+        function updateinfo() {
+            console.log(new Date().toLocaleTimeString().split(":")[0]);
+            var shalimarCap = svgdoc.getElementById("shalimar_cap");
+            var sCap = <%=shalimar_storage%> + " KL";
+            var update = new Date().toDateString().slice(4) + ", " + new Date().toLocaleTimeString().split(":")[0] + ":" + new Date().toLocaleTimeString().split(":")[1] + " " + new Date().toLocaleTimeString().split(" ")[1];
+
+            shalimarCap.childNodes[0].textContent = sCap;
+
+            svgdoc.getElementById("shal_storage").textContent = getRandomInt(9);
+
+            svgdoc.getElementById("shal_lastUpdate").textContent = update;
+            svgdoc.getElementById("ritu_update").textContent = update;
+            svgdoc.getElementById("kolar_update").textContent = update;
+            svgdoc.getElementById("raj_update").textContent = update;
+            svgdoc.getElementById("bair_update").textContent = update;
+
+        }
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+    });
+</script>
+
+</body>
+</body>
+</html>

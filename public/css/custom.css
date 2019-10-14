@@ -1,0 +1,80 @@
+#true-info {
+    color: red;
+}
+
+#info-title{
+    color: black; margin-left: 8px;
+}
+
+#info-panel-1{
+    position: absolute;
+    z-index: 10;
+    background: #c8c8c8;
+    top: 42px;
+    left: 560.2px;
+    width: 220px;
+    height: 90px;
+    font-family: Ubuntu;
+    border-radius: 10px;
+    background: rgba(220, 250, 250, .7);
+    border: #0c0d0e 1px solid;
+}
+
+#info-panel-2{
+    position: absolute;
+    z-index: 10;
+    background: #c8c8c8;
+    top: 168px;
+    left: 520.2px;
+    width: 220px;
+    height: 90px;
+    font-family: Ubuntu;
+    border-radius: 10px;
+    background: rgba(220, 250, 250, .7);
+    border: #0c0d0e 1px solid;
+}
+
+#info-panel-3{
+    position: absolute;
+    z-index: 10;
+    background: #c8c8c8;
+    top: 312px;
+    left: 955.2px;
+    width: 220px;
+    height: 90px;
+    font-family: Ubuntu;
+    border-radius: 10px;
+    background: rgba(220, 250, 250, .7);
+    border: #0c0d0e 1px solid;
+}
+
+#info-panel-4{
+    position: absolute;
+    z-index: 10;
+    background: #c8c8c8;
+    top: 481px;
+    left: 1023.2px;
+    width: 220px;
+    height: 90px;
+    font-family: Ubuntu;
+    border-radius: 10px;
+    background: rgba(220, 250, 250, .7);
+    border: #0c0d0e 1px solid;
+}
+
+#info-panel-5{
+    position: absolute;
+    z-index: 10;
+    background: rgba(220, 250, 250, .7);
+    border: #0c0d0e 1px solid;
+    top: 564px;
+    left: 438.2px;
+    width: 220px;
+    height: 90px;
+    font-family: Ubuntu;
+    border-radius: 10px;
+}
+
+small {
+    font-size: x-small;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "crowd_monitoring_portal",
+  "version": "1.0.0",
+  "description": "Portal to visualise and analyse data collected though sensor-nodes in the forest.",
+  "main": "app.js",
+  "scripts": {
+    "test": "node start app.js"
+  },
+  "author": "Mayank Parmar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "leaflet": "^1.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
+  }
+}
