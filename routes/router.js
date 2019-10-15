@@ -9,7 +9,7 @@ mongoose.connect (configDB.url);
 var router  = express.Router();
 var app     = express();
 
-var Devices = require ("../models/devices");
+var Devices = require ("../models/Devices");
 
 app.use(require('body-parser').urlencoded({ extended: true }));
 
@@ -36,9 +36,20 @@ module.exports = function (router, passport) {
 
     router.get("/device/getLocations", function (req, res) {
         console.log ('here');
-        Devices.findOne ({device_id:1}, function (err, listDevices) {
-            console.log (listDevices);
-            res.send (listDevices);
+        Devices.find ({}, function (err, listDevices) {
+            if (err) {
+                console.log ('Error in fetching locations')
+            }
+            else {
+                if (!listDevices) {
+                    console.log ('Device does not exist');
+                }
+                else {
+                    console.log (listDevices);
+                    res.send (listDevices);
+                }
+            }
+
         });
     });
 

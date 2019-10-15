@@ -39,11 +39,12 @@
 </head>
 
 <body>
-<div class="navbar navbar-fixed-top" data-activeslide="1" style="display: block; float: top; position: absolute; background: rgb(206,207,207)">
-    <h1 class="font-thin" style="color: #fff; display: inline-block; float: left; width: auto">The <span class="font-semibold">forest CLOUD</span></h1>
-    <div class="container" style="display: inline-block; float: left;">
+<div class="navbar navbar-fixed-top" data-activeslide="1" style="display: block; float: top; position: absolute; background: rgb(47, 47, 47); text-align: center">
+    <h1 class="font-thin" style="color: #fff; display: inline-block;  width: auto; vertical-align: middle; padding-bottom: 5px">The <span class="font-semibold">forest CLOUD</span></h1>
 
-        <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+    <!--<div class="container" style="display: inline-block; float: left;">
+
+        &lt;!&ndash; .navbar-toggle is used as the toggle for collapsed navbar content &ndash;&gt;
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -61,7 +62,7 @@
                                                               title="Next Section"><span class="icon icon-user"></span>
                         <span class="text">ABOUT US</span></a></li>
 
-                <!--
+                &lt;!&ndash;
                 <li data-slide="3" class="col-12 col-sm-2"><a id="menu-link-3" href="#slide-3"
                                                               title="Next Section"><span
                                 class="icon icon-briefcase"></span> <span class="text">PORTFOLIO</span></a></li>
@@ -74,16 +75,16 @@
                 <li data-slide="6" class="col-12 col-sm-2"><a id="menu-link-6" href="#slide-6"
                                                               title="Next Section"><span
                                 class="icon icon-envelope"></span> <span class="text">CONTACT</span></a></li>
-                -->
+                &ndash;&gt;
 
             </ul>
 
             <div class="row">
                 <div class="col-sm-2 active-menu"></div>
             </div>
-        </div><!-- /.nav-collapse -->
+        </div>&lt;!&ndash; /.nav-collapse &ndash;&gt;
 
-    </div><!-- /.container -->
+    </div>&lt;!&ndash; /.container &ndash;&gt;-->
 <!--
     <div style="position: absolute; float:right; width: 100%; text-align: right; padding-right: 2%" class="row nav"><a href="/portal"><span
                     class="icon-user"></span> <span class="text">LOGIN</span></a></div>
@@ -102,7 +103,9 @@
 
 
 <!-- === MAIN Background === -->
-<div class="slide story" id="slide-1" data-slide="1" style="display: block; position: absolute">
+
+<div class=" " id="slide-1" data-slide="1" style="display: block; width: 100%; float: left; position: absolute; z-index: 1">
+
     <!--<div class="container" style="height: 100%">
         <div id="home-row-1" class="row clearfix" >
             <div class="col-12" >
@@ -130,6 +133,9 @@
         </div>&lt;!&ndash; /row &ndash;&gt;
     </div>&lt;!&ndash; /container &ndash;&gt;-->
 </div><!-- /slide1 -->
+<div class="hidden" id="informationPanel" style="float: right; width: 30%; position: absolute; background: rgb(78, 78, 78); height: 100%; color: #0c0d0e; padding-top: 65px; padding-left: 10px; left: 70%; z-index: 2;">
+    <h3 style="color: whitesmoke">Information</h3>
+</div>
 
 <!-- === Slide 2 === --
 <div class="slide story" id="slide-2" data-slide="2">
@@ -344,6 +350,7 @@
 <script src="js/script.js"></script>
 
 <!-- fancybox init -->
+<!--
 <script>
     $(document).ready(function (e) {
         var lis = $('.nav > li');
@@ -360,28 +367,109 @@
 
     });
 </script>
+-->
 
 <script>
 
-    window.addEventListener ()
-    function fetchLocations () {
+    window.addEventListener ("load", function (evt) {
+        console.log("ready");
+        // fetchLocations();
+    });
+
+    var markers = [];
+    var markersLayer;
+
+    L.mapbox.accessToken = 'pk.eyJ1IjoibWF5YW5rMzExIiwiYSI6ImNrMXFkNnVjeDAxc3czZHN4MmNsdHY2a24ifQ.T-QvLV8ABY4mdx5B9pUHSQ';
+    var mapLeaflet = L.mapbox.map('slide-1').setView([53.337, -6.268], 15).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
+    // L.marker([53.337695, -6.268322]).addTo(mapLeaflet);
+    mapLeaflet.scrollWheelZoom.disable();
+
+
+    var lat = 0;
+    var lon = 0;
+    var container;
+    var infoBtns;
+    // console.log ('loaded');
+    var http_req = new XMLHttpRequest();
+    http_req.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // console.log ('locations fetch request is answered');
+            var data_range = JSON.parse (this.responseText);
+            data_range.forEach (function (item, index) {
+                lat = data_range[index].device_location [0];
+                lon = data_range[index].device_location [1];
+                console.log("going to add markers");
+                container = L.DomUtil.create('div');
+                var link = $('<a href="#" onclick="document.getElementById(\'informationPanel\').classList.toggle(\'hidden\')" class="speciallink">More Information</a>').click(function() {
+
+                })[0];
+                infoBtns = (createButton (container, index));
+                addMarker (mapLeaflet, lat, lon, index, link);
+            });
+        }
+    }
+    http_req.open ("Get", "/device/getLocations");
+    http_req.send ();
+
+    var myFeatureGroup = L.featureGroup().addTo(mapLeaflet).on("click", groupClick);
+    var marker;
+
+
+    var startBtn = this.createButton('More Infromation: ', container);
+
+    function addMarker(mapLeaflet, lat, lon, index, link) {
+        marker = markers.push(L.marker([lat, lon]).addTo(mapLeaflet).bindPopup(link));  // make it infoBtns[index] when we have more than one marker
+        marker.test = index;
+    }
+
+    function createButton(container, index) {
+        var btn = L.DomUtil.create('button' + index, container);
+        btn.setAttribute('type', 'button');
+        btn.innerHTML = "More information on Device " + index;
+        return btn;
+    }
+
+    function groupClick(event) {
+        console.log("Clicked on marker " + event.layer.test);
+    }
+    /*function fetchLocations () {
+        console.log("fetching locations");
         L.mapbox.accessToken = 'pk.eyJ1IjoibWF5YW5rMzExIiwiYSI6ImNrMXFkNnVjeDAxc3czZHN4MmNsdHY2a24ifQ.T-QvLV8ABY4mdx5B9pUHSQ';
         var mapLeaflet = L.mapbox.map('slide-1').setView([53.337, -6.268], 15).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
         // L.marker([53.337695, -6.268322]).addTo(mapLeaflet);
         mapLeaflet.scrollWheelZoom.disable();
 
-        console.log ('loaded');
+        var lat = 0;
+        var lon = 0;
+        // console.log ('loaded');
         var http_req = new XMLHttpRequest();
         http_req.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                console.log ('locations fetch request is answered');
+                // console.log ('locations fetch request is answered');
                 var data_range = JSON.parse (this.responseText);
-                console.log (data_range);
+                data_range.forEach (function (item, index) {
+                    lat = data_range[index].device_location [0];
+                    lon = data_range[index].device_location [1];
+                    console.log("going to add markers");
+                    addMarker (mapLeaflet, lat, lon);
+                });
             }
         }
         http_req.open ("Get", "/device/getLocations");
         http_req.send ();
+        // markersLayer = L.featureGroup().addTo(mapLeaflet).on("click", groupClick);
+        // console.log(markersLayer);
     }
+
+    function addMarker(mapLeaflet, lat, lon) {
+        console.log("adding markers")
+        markers.push(L.marker([lat, lon]).addTo(mapLeaflet));
+    }
+
+    function groupClick (event) {
+        alert("hi");
+    }*/
+
 
     /*mapboxgl.accessToken = 'pk.eyJ1IjoibWF5YW5rMzExIiwiYSI6ImNrMXFkNnVjeDAxc3czZHN4MmNsdHY2a24ifQ.T-QvLV8ABY4mdx5B9pUHSQ';
     var map = new mapboxgl.Map({
