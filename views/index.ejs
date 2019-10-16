@@ -380,8 +380,12 @@
     var markersLayer;
 
     L.mapbox.accessToken = 'pk.eyJ1IjoibWF5YW5rMzExIiwiYSI6ImNrMXFkNnVjeDAxc3czZHN4MmNsdHY2a24ifQ.T-QvLV8ABY4mdx5B9pUHSQ';
-    var mapLeaflet = L.mapbox.map('slide-1').setView([53.337, -6.268], 15).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
+    var mapLeaflet = L.mapbox.map('slide-1').setView([53.35, -6.28], 14).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
     // L.marker([53.337695, -6.268322]).addTo(mapLeaflet);
+    mapLeaflet.dragging.disable();
+    mapLeaflet.touchZoom.disable();
+    mapLeaflet.doubleClickZoom.disable();
+    mapLeaflet.scrollWheelZoom.disable();
     mapLeaflet.scrollWheelZoom.disable();
 
 
@@ -396,11 +400,13 @@
             // console.log ('locations fetch request is answered');
             var data_range = JSON.parse (this.responseText);
             data_range.forEach (function (item, index) {
-                lat = data_range[index].device_location [0];
-                lon = data_range[index].device_location [1];
-                console.log("going to add markers");
+                lat = data_range [index].device_location [0];
+                lon = data_range [index].device_location [1];
+                console.log(data_range [index]);
                 container = L.DomUtil.create('div');
-                var link = $('<a href="#" onclick="document.getElementById(\'informationPanel\').classList.toggle(\'hidden\')" class="speciallink">More Information</a>').click(function() {
+                var link = $('<a href="#" onclick="document.getElementById(\'informationPanel\').' +
+                    'classList.toggle(\'hidden\')" class="speciallink">For more inforamation on device '
+                    + (index + 1) + '</a>').click(function() {
 
                 })[0];
                 infoBtns = (createButton (container, index));
@@ -418,6 +424,7 @@
     var startBtn = this.createButton('More Infromation: ', container);
 
     function addMarker(mapLeaflet, lat, lon, index, link) {
+        console.log ()
         marker = markers.push(L.marker([lat, lon]).addTo(mapLeaflet).bindPopup(link));  // make it infoBtns[index] when we have more than one marker
         marker.test = index;
     }

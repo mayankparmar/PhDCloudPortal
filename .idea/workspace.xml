@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c829ee46-5940-4d82-90bf-67736fb172c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/devices.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Devices.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +21,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/model" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -57,7 +54,8 @@
       <workItem from="1571051292831" duration="3905000" />
       <workItem from="1571055288587" duration="11327000" />
       <workItem from="1571127036539" duration="756000" />
-      <workItem from="1571136587982" duration="3338000" />
+      <workItem from="1571136587982" duration="3937000" />
+      <workItem from="1571216133090" duration="3090000" />
     </task>
     <servers />
   </component>
