@@ -38,15 +38,19 @@ module.exports = function (router, passport) {
         console.log ('here');
         Devices.find ({}, function (err, listDevices) {
             if (err) {
+                console.log ('1');
                 console.log ('Error in fetching locations')
             }
             else {
                 if (!listDevices) {
                     console.log ('Device does not exist');
+                    console.log ('2');
                 }
                 else {
                     console.log (listDevices);
                     res.send (listDevices);
+                    console.log ('3');
+
                 }
             }
 

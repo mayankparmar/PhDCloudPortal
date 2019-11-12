@@ -400,8 +400,8 @@
             // console.log ('locations fetch request is answered');
             var data_range = JSON.parse (this.responseText);
             data_range.forEach (function (item, index) {
-                lat = data_range [index].device_location [0];
-                lon = data_range [index].device_location [1];
+                lat = data_range [index].device_location.coordinates [0];
+                lon = data_range [index].device_location.coordinates [1];
                 console.log(data_range [index]);
                 container = L.DomUtil.create('div');
                 var link = $('<a href="#" onclick="document.getElementById(\'informationPanel\').' +
